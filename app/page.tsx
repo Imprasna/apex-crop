@@ -8,12 +8,38 @@ import { Card, CardContent } from "@/components/ui/card"
 import ScrollAnimation from "@/components/scroll-animation"
 import { Users, Trophy, MapPin, ShoppingBag, Star, Calendar, ArrowRight, Play, Award, Target } from "lucide-react"
 import BookingModal from "@/components/booking-modal"
+import TournamentRegistrationModal from "@/components/tournament-registration-modal"
+import RegistrationClosedModal from "@/components/registration-closed-modal"
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+  const [isTournamentRegistrationOpen, setIsTournamentRegistrationOpen] = useState(false)
+  const [isRegistrationClosedOpen, setIsRegistrationClosedOpen] = useState(false)
 
-    const heroSlides = [
+  // Tournament registration checker - same as tournaments page
+  const registrationOpenDates = {
+    "2024-03-15": true, // Spring Championship
+    "2024-03-22": true, // Beginner's Cup
+    "2024-04-05": true, // Mixed Doubles League
+    "2024-04-20": false, // Senior Masters - registration closed
+  }
+
+  const checkRegistrationStatus = () => {
+    // Check if any tournament registration is currently open
+    // For home page, we'll check the next upcoming tournament (Spring Championship)
+    return registrationOpenDates["2024-03-15"] || false
+  }
+
+  const handleTournamentRegistration = () => {
+    if (checkRegistrationStatus()) {
+      setIsTournamentRegistrationOpen(true)
+    } else {
+      setIsRegistrationClosedOpen(true)
+    }
+  }
+
+  const heroSlides = [
     {
       title: "Master Your Pickleball Game",
       subtitle: "Professional coaching and world-class facilities",
@@ -152,9 +178,8 @@ export default function HomePage() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide ? "bg-secondary" : "bg-white/50"
-              }`}
+              className={`w-3 h-3 rounded-full transition-all ${index === currentSlide ? "bg-secondary" : "bg-white/50"
+                }`}
             />
           ))}
         </div>
@@ -253,12 +278,12 @@ export default function HomePage() {
             <div className="relative overflow-hidden">
               <div className="flex animate-scroll">
                 {[...partners, ...partners].map((partner, index) => (
-                <div key={index} className="flex-shrink-0 px-8">
-                  <div className="h-16 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-gray-700">{partner}</span>
+                  <div key={index} className="flex-shrink-0 px-8">
+                    <div className="h-16 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-gray-700">{partner}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
             </div>
           </ScrollAnimation>
@@ -335,7 +360,7 @@ export default function HomePage() {
                     <p className="font-secondary text-gray-600 mb-4">{event.type}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-500">{event.participants}</span>
-                      <Button size="sm" className="bg-secondary hover:bg-secondary/90">
+                      <Button size="sm" className="bg-secondary hover:bg-secondary/90" onClick={handleTournamentRegistration}>
                         Register
                       </Button>
                     </div>
@@ -394,6 +419,15 @@ export default function HomePage() {
 
       {/* Booking Modal */}
       <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
+
+      {/* Tournament Registration Modal */}
+      <TournamentRegistrationModal
+        isOpen={isTournamentRegistrationOpen}
+        onClose={() => setIsTournamentRegistrationOpen(false)}
+      />
+
+      {/* Registration Closed Modal */}
+      <RegistrationClosedModal isOpen={isRegistrationClosedOpen} onClose={() => setIsRegistrationClosedOpen(false)} />
     </div>
   )
 }

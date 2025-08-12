@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import BookingModal from "@/components/booking-modal"
+import { Sparkles } from "lucide-react"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -63,9 +64,9 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 z-50 relative">
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
+                <span className="text-white font-bold text-xl">A</span>
               </div>
-              <span className="font-primary font-bold text-xl text-primary">Elite Pickleball</span>
+              <span className="font-primary font-bold text-xl text-primary">Apex Pickleball</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -79,12 +80,24 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <Button
+              {/* Luxury Book Now Button */}
+            <Button
+                  className="relative overflow-hidden bg-gradient-to-r from-secondary via-secondary/90 to-secondary/80 hover:from-secondary/90 hover:via-secondary hover:to-secondary text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                  onClick={() => setIsBookingModalOpen(true)}
+                >
+                  <span className="relative z-10 flex items-center">
+                    Book Now
+                    <Sparkles className="ml-2 w-4 h-4 group-hover:animate-spin" />
+                  </span>
+                  {/* Animated background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+                </Button>
+              {/* <Button
                 className="bg-secondary hover:bg-secondary/90 text-white font-semibold"
                 onClick={() => setIsBookingModalOpen(true)}
               >
                 Book Now
-              </Button>
+              </Button> */}
             </div>
 
             {/* Mobile menu button */}

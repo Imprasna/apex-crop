@@ -10,9 +10,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">P</span>
+                <span className="text-white font-bold text-xl">A</span>
               </div>
-              <span className="font-primary font-bold text-xl">Elite Pickleball</span>
+              <span className="font-primary font-bold text-xl">Apex Pickleball</span>
             </div>
             <p className="text-gray-300 font-secondary mb-4">
               Premier pickleball coaching, court management, and tournament organization.
