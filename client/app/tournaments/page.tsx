@@ -568,8 +568,9 @@ export default function TournamentsPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
+            filter: "grayscale(1)",
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop')",
+              "url('./pickleball-t.jpg')",
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -603,11 +604,11 @@ export default function TournamentsPage() {
             <ScrollAnimation delay={200}>
               <div className="relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=500&fit=crop"
+                  src="https://images.pexels.com/photos/29439337/pexels-photo-29439337.jpeg"
                   alt="Pickleball tournament action"
                   width={600}
                   height={500}
-                  className="rounded-lg shadow-xl"
+                  className="rounded-lg shadow-xl opacity-0"
                 />
               </div>
             </ScrollAnimation>

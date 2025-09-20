@@ -7,7 +7,11 @@ import { Send } from "lucide-react";
 import { backendApi } from "@/entities";
 import axios from "axios";
 
-export default function CMSform() {
+type CMSformProps = {
+  onLogout: () => void;
+};
+
+export default function CMSform({ onLogout }: CMSformProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -71,7 +75,7 @@ export default function CMSform() {
       // ✅ Reset form state (fixed "dates" field)
       setFormData({
         title: "",
-        dates: "", 
+        dates: "",
         location: "",
         entryFee: "",
         maxPlayers: "",
@@ -96,9 +100,13 @@ export default function CMSform() {
 
   return (
     <>
-      <div className="mt-[3%]"></div>
-      <div className="max-w-4xl mx-auto p-6">
-        <Card>
+      <Button onClick={onLogout} className="absolute top-20 right-2 md:top-8 md:right-6 lg:top-20 lg:right-10 
+          bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm md:text-base shadow">
+        Logout
+      </Button>
+      <div className=" pt-[5%]"></div>
+      <div className="max-w-4xl mx-auto py-6 p-2">
+        <Card className="bg-gray-300">
           <CardHeader>
             <CardTitle className="font-primary text-2xl text-primary">
               Add Tournament
@@ -222,7 +230,7 @@ export default function CMSform() {
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <label
                     htmlFor="level"
                     className="block text-sm font-medium text-gray-700 mb-1"
@@ -239,7 +247,7 @@ export default function CMSform() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="Intermediate/Advanced"
                   />
-                </div>
+                </div> */}
 
                 <div>
                   <label
@@ -257,28 +265,6 @@ export default function CMSform() {
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="$5,000 Prize Pool"
-                  />
-                </div>
-
-                {/* Image */}
-                <div>
-                  <label
-                    htmlFor="image"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Tournament Image
-                  </label>
-                  <span className="block text-xs text-gray-500 mb-1">
-                    Please upload 400x300px image
-                  </span>
-                  <input
-                    type="file"
-                    id="image"
-                    name="image"
-                    accept="image/*"
-                    ref={fileInputRef}
-                    onChange={handleFileChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
@@ -305,13 +291,36 @@ export default function CMSform() {
                     ))}
                   </select>
                 </div>
+
+
+              </div>
+              {/* Image */}
+              <div className="w-full">
+                <label
+                  htmlFor="image"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Tournament Image
+                </label>
+                <span className="block text-xs text-gray-500 mb-1">
+                  Please upload 400x300px image
+                </span>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
               </div>
 
               {/* Submit */}
               <div className="flex justify-end pt-4">
                 <Button
                   type="submit"
-                  className="bg-primary hover:bg-primary/90 text-white font-semibold"
+                  className="bg-primary hover:bg-primary/90 text-white font-semibold w-full"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
