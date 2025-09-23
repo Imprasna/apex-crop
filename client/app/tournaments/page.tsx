@@ -17,7 +17,7 @@
 //     {
 //       title: "Spring Championship",
 //       date: "March 15-17, 2024",
-//       location: "Elite Pickleball Academy",
+//       location: "Apex Pickleball Academy",
 //       entryFee: "$75",
 //       maxPlayers: "64",
 //       currentPlayers: "48",
@@ -29,7 +29,7 @@
 //     {
 //       title: "Beginner's Cup",
 //       date: "March 22, 2024",
-//       location: "Elite Pickleball Academy",
+//       location: "Apex Pickleball Academy",
 //       entryFee: "$35",
 //       maxPlayers: "32",
 //       currentPlayers: "18",
@@ -41,7 +41,7 @@
 //     {
 //       title: "Mixed Doubles League",
 //       date: "April 5 - May 10, 2024",
-//       location: "Elite Pickleball Academy",
+//       location: "Apex Pickleball Academy",
 //       entryFee: "$120/team",
 //       maxPlayers: "32 teams",
 //       currentPlayers: "24 teams",
@@ -53,7 +53,7 @@
 //     {
 //       title: "Senior Masters",
 //       date: "April 20-21, 2024",
-//       location: "Elite Pickleball Academy",
+//       location: "Apex Pickleball Academy",
 //       entryFee: "$65",
 //       maxPlayers: "48",
 //       currentPlayers: "32",
@@ -452,7 +452,7 @@ export default function TournamentsPage() {
     {
       title: "Spring Championship",
       date: "March 15-17, 2024",
-      location: "Elite Pickleball Academy",
+      location: "Apex Pickleball Academy",
       entryFee: "$75",
       maxPlayers: "64",
       currentPlayers: "48",
@@ -464,7 +464,7 @@ export default function TournamentsPage() {
     {
       title: "Beginner's Cup",
       date: "March 22, 2024",
-      location: "Elite Pickleball Academy",
+      location: "Apex Pickleball Academy",
       entryFee: "$35",
       maxPlayers: "32",
       currentPlayers: "18",
@@ -476,7 +476,7 @@ export default function TournamentsPage() {
     {
       title: "Mixed Doubles League",
       date: "April 5 - May 10, 2024",
-      location: "Elite Pickleball Academy",
+      location: "Apex Pickleball Academy",
       entryFee: "$120/team",
       maxPlayers: "32 teams",
       currentPlayers: "24 teams",
@@ -488,7 +488,7 @@ export default function TournamentsPage() {
     {
       title: "Senior Masters",
       date: "April 20-21, 2024",
-      location: "Elite Pickleball Academy",
+      location: "Apex Pickleball Academy",
       entryFee: "$65",
       maxPlayers: "48",
       currentPlayers: "32",

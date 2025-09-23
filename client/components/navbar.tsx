@@ -166,7 +166,7 @@ export default function Navbar() {
                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-2xl">P</span>
                 </div>
-                <span className="font-primary font-bold text-2xl text-white">Elite Pickleball</span>
+                <span className="font-primary font-bold text-2xl text-white">Apex Pickleball</span>
               </div>
             </div>
 

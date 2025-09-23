@@ -4,34 +4,41 @@ import ScrollAnimation from "@/components/scroll-animation"
 import { Users, Target, Heart, Award, Trophy } from "lucide-react"
 
 export default function AboutPage() {
+    // Base year when you started
+  const baseYear = 2021; 
+  const currentYear = new Date().getFullYear();
+
+  // Auto-increment value
+  const years = currentYear - baseYear;
+
   const team = [
     {
-      name: "John Martinez",
-      role: "Head Coach & Founder",
+      name: "Rohit K Ahuja",
+      role: "Founder & Head Coach",
       experience: "15 years",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
       bio: "Former professional player with multiple championship titles",
     },
     {
-      name: "Sarah Williams",
-      role: "Senior Coach",
+      name: "Prasanna S",
+      role: "Co-founder & Coach",
       experience: "10 years",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
       bio: "Specializes in youth development and competitive training",
     },
     {
-      name: "Mike Thompson",
-      role: "Court Manager",
+      name: "GK",
+      role: "Performance Coach",
       experience: "8 years",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
       bio: "Expert in facility management and player experience",
     },
     {
       name: "Lisa Chen",
       role: "Tournament Director",
       experience: "12 years",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "Organizes world-class tournaments and competitive events",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      bio: "Organizes world-class tournaments & competitive events",
     },
   ]
 
@@ -72,7 +79,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <ScrollAnimation>
-              <h1 className="font-primary text-5xl md:text-6xl font-bold mb-6">About Elite Pickleball</h1>
+              <h1 className="font-primary text-5xl md:text-6xl font-bold mb-6">About Apex Pickleball</h1>
               <p className="font-secondary text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
                 Dedicated to excellence in pickleball coaching, court management, and community building since 2019
               </p>
@@ -91,7 +98,7 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <ScrollAnimation>
-              <h1 className="font-primary text-5xl md:text-6xl font-bold mb-6">About Elite Pickleball</h1>
+              <h1 className="font-primary text-5xl md:text-6xl font-bold mb-6">About Apex Pickleball</h1>
               <p className="font-secondary text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
                 Dedicated to excellence in pickleball coaching, court management, and community building since 2019
               </p>
@@ -109,19 +116,21 @@ export default function AboutPage() {
                 <h2 className="font-primary text-4xl font-bold text-primary mb-6">Our Story</h2>
                 <div className="space-y-4 font-secondary text-gray-600 text-lg">
                   <p>
-                    Elite Pickleball Academy was founded in 2019 with a simple mission: to provide world-class
-                    pickleball instruction and facilities to players of all skill levels. What started as a small
-                    coaching operation has grown into the premier pickleball destination in the region.
+                    Apex Pickleball Academy was born out of a deep love for the game and a vision to make pickleball one of the most 
+                    celebrated sports in India and beyond. What began as a small initiative to introduce the sport to friends and local 
+                    players quickly transformed into a structured academy, offering coaching, clinics, and tournaments for players at 
+                    every stage of their journey.
                   </p>
                   <p>
-                    Our founder, John Martinez, recognized the need for professional-grade instruction and facilities as
-                    pickleball's popularity exploded. With his background as a former professional player and certified
-                    instructor, he assembled a team of passionate coaches and staff dedicated to excellence.
+                    We recognized early on that pickleball is more than just a game - it’s a community builder, a bridge between generations, 
+                    and a platform for both fitness and fun. With that belief, Apex was created to nurture aspiring athletes, support 
+                    recreational players, and provide opportunities for professionals to compete at the highest level.
                   </p>
                   <p>
-                    Today, we're proud to serve over 500 active students, host major tournaments, and maintain 12
-                    state-of-the-art courts. Our commitment to quality and community has made us the go-to destination
-                    for pickleball enthusiasts throughout the area.
+                    From grassroots training for kids to specialized programs for working professionals, our journey has been defined 
+                    by growth, passion, and a commitment to raising the standard of pickleball coaching and events. Today, 
+                    Apex Pickleball Academy stands as a hub for learning, competition, and connection - a place where every player’s 
+                    story matters, and every step on the court takes them closer to their potential.
                   </p>
                 </div>
               </div>
@@ -130,13 +139,13 @@ export default function AboutPage() {
               <div className="relative">
                 <Image
                   src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=500&fit=crop"
-                  alt="Elite Pickleball Academy facility"
+                  alt="Apex Pickleball Academy facility"
                   width={600}
                   height={500}
                   className="rounded-lg shadow-xl"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-secondary text-white p-6 rounded-lg shadow-lg">
-                  <div className="text-3xl font-bold">5+</div>
+                <div className="absolute -bottom-6 right-0 bg-secondary text-white py-6 px-8 rounded-lg shadow-lg">
+                  <div className="text-4xl font-bold">{years}+</div>
                   <div className="text-sm">Years of Excellence</div>
                 </div>
               </div>
@@ -177,9 +186,9 @@ export default function AboutPage() {
             <div className="bg-white rounded-lg p-8 shadow-lg">
               <h3 className="font-primary text-2xl font-bold text-primary mb-4 text-center">Our Mission</h3>
               <p className="font-secondary text-lg text-gray-600 text-center max-w-4xl mx-auto">
-                To provide exceptional pickleball instruction, world-class facilities, and memorable tournament
-                experiences while fostering a welcoming community where players of all levels can grow, compete, and
-                enjoy the sport they love.
+                Our mission is to make pickleball accessible, professional, and inspiring. We strive to develop 
+                talent through structured coaching, world-class programs, and engaging tournaments, while fostering 
+                discipline, teamwork, and sportsmanship both on and off the court.
               </p>
             </div>
           </ScrollAnimation>
@@ -269,17 +278,11 @@ export default function AboutPage() {
                 <h2 className="font-primary text-4xl font-bold text-primary mb-6">Community Involvement</h2>
                 <div className="space-y-4 font-secondary text-gray-600 text-lg">
                   <p>
-                    We believe in giving back to the community that has supported us. Elite Pickleball Academy actively
-                    participates in local events, sponsors youth programs, and partners with schools to introduce
-                    pickleball to new generations.
-                  </p>
-                  <p>
-                    Our annual charity tournament has raised over $50,000 for local youth sports programs, and our free
-                    community clinics have introduced hundreds of new players to the sport.
-                  </p>
-                  <p>
-                    We're proud partners with the local Parks & Recreation Department, helping to develop public courts
-                    and training programs throughout the region.
+                    At Apex, we believe in giving back. Our academy actively engages with local communities through free clinics, 
+                    school programs, and awareness drives to introduce pickleball to new audiences. We also host tournaments 
+                    and events that bring people together, promote active lifestyles, and create opportunities for both 
+                    recreational and competitive play. By building a strong pickleball community, we aim to nurture not just 
+                    athletes, but well-rounded individuals who carry the spirit of the game beyond the court.
                   </p>
                 </div>
                 <div className="mt-8 flex items-center space-x-4">

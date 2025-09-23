@@ -67,7 +67,7 @@ export default function BlogPage() {
       title: "New Court Expansion: Doubling Our Capacity",
       excerpt: "Exciting news about our facility expansion, adding 6 new courts to better serve our growing community.",
       category: "News",
-      author: "Elite Pickleball Team",
+      author: "Apex Pickleball Team",
       date: "February 28, 2024",
       readTime: "3 min read",
       image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop",

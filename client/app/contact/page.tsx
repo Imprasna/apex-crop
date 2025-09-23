@@ -7,9 +7,11 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import ScrollAnimation from "@/components/scroll-animation"
-import { MapPin, Phone, Mail, Clock, Send, Facebook, Instagram, Twitter, Youtube, MessageCircle } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Send, Facebook, Instagram, Twitter, Youtube, MessageCircle, SendHorizontal  } from "lucide-react"
 import { backendApi } from "@/entities"
 import axios from 'axios';
+import toast from "react-hot-toast"
+import { showSuccess } from "@/lib/toastUtil"
 
 
 export default function ContactPage() {
@@ -20,6 +22,7 @@ export default function ContactPage() {
     subject: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -28,13 +31,15 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       console.log("Form submitted:", formData);
 
       const response = await axios.post(`${backendApi}/contact-form`, formData);
 
-      console.log("Form submitted successfully:", response.data);
+      // console.log("Form submitted successfully:", response.data);
+      showSuccess("Message sent successfully!");
 
       setFormData({
         name: "",
@@ -44,10 +49,17 @@ export default function ContactPage() {
         message: "",
       });
     } catch (error: any) {
-      console.error(
-        "Form submission failed:",
-        error?.response?.data || error.message || error
-      );
+      toast.error("Form submission failed", {
+        removeDelay: 1000,
+        position: 'top-center',
+        duration: 3000,
+        iconTheme: {
+          primary: '#FF2C2C',
+          secondary: '#fff',
+        },
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -65,7 +77,7 @@ export default function ContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: ["info@elitepickleball.com", "support@elitepickleball.com"],
+      details: ["info@Apexpickleball.com", "support@Apexpickleball.com"],
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -119,7 +131,7 @@ export default function ContactPage() {
               <div className="relative">
                 <Image
                   src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=500&fit=crop"
-                  alt="Elite Pickleball Academy facility"
+                  alt="Apex Pickleball Academy facility"
                   width={600}
                   height={500}
                   className="rounded-lg shadow-xl"
@@ -262,9 +274,16 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90">
-                      Send Message
-                      <Send className="ml-2 w-5 h-5" />
+                    <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90">
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 w-4 h-4" />
+                        </>
+                      )}
+                      {/* <Send className="ml-2 w-5 h-5" /> */}
                     </Button>
                   </form>
                 </CardContent>
