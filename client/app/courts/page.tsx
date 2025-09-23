@@ -31,7 +31,7 @@ export default function CourtsPage() {
       description: "Partner courts across the city for your convenience",
     },
     {
-      icon: <Wifi className="w-8 h-8" />,
+      icon: <Wifi className="w-8 h-8" />, 
       title: "Modern Amenities",
       description: "Free WiFi, climate control, and comfortable seating areas",
     },
