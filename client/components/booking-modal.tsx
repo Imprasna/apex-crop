@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import toast from 'react-hot-toast';
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { X, Send } from "lucide-react"
 import axios from "axios"
 import { backendApi } from "@/entities"
+import { showSuccess, showError } from "@/lib/toastUtil";
 
 interface BookingModalProps {
   isOpen: boolean
@@ -32,7 +34,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   ]
 
   const locationOptions = [
-    { value: "elite-sports-complex", label: "Elite Sports Complex - Downtown" },
+    { value: "Apex-sports-complex", label: "Apex Sports Complex - Downtown" },
     { value: "riverside-center", label: "Riverside Pickleball Center - Riverside" },
     { value: "metro-sports-hub", label: "Metro Sports Hub - CBD" },
     { value: "northside-recreation", label: "Northside Recreation Center - Northside" },
@@ -44,8 +46,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
-  
-const handleSubmit = async (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -62,11 +64,9 @@ const handleSubmit = async (e: React.FormEvent) => {
 
       // Optional: Check for response status
       if (response.status === 200) {
-        alert(
-          "Booking request submitted successfully! We'll contact you soon."
-        );
+        showSuccess("Booking submitted successfully!");
       } else {
-        alert("Submission failed. Please try again.");
+        showError("Submission failed. Please try again");
       }
 
       // Reset form after successful submission
@@ -215,7 +215,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="flex-1 font-semibold"
+                className="flex-1 font-semibold border-2 border-primary/80"
                 disabled={isSubmitting}
               >
                 Cancel

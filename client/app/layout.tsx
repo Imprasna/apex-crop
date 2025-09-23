@@ -4,6 +4,7 @@ import { Montserrat, Open_Sans } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import { Toaster } from "react-hot-toast"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Elite Pickleball Academy",
+  title: "Apex Pickleball Academy",
   description: "Premier pickleball coaching, court management, and tournaments",
   generator: 'v0.dev'
 }
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable} ${openSans.variable} font-primary antialiased`}>
         <Navbar />
+        <Toaster position="top-right" reverseOrder={false} />
         <main>{children}</main>
         <Footer />
       </body>

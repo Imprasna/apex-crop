@@ -15,7 +15,7 @@ export default function MerchandisePage() {
   const products = [
     {
       id: 1,
-      name: "Elite Pro Paddle",
+      name: "Apex Pro Paddle",
       category: "Paddles",
       price: 149.99,
       originalPrice: 179.99,
@@ -38,7 +38,7 @@ export default function MerchandisePage() {
     },
     {
       id: 3,
-      name: "Elite Academy Jersey",
+      name: "Apex Academy Jersey",
       category: "Apparel",
       price: 39.99,
       rating: 4.7,

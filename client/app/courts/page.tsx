@@ -31,13 +31,13 @@ export default function CourtsPage() {
       description: "Partner courts across the city for your convenience",
     },
     {
-      icon: <Wifi className="w-8 h-8" />,
+      icon: <Wifi className="w-8 h-8" />, 
       title: "Modern Amenities",
       description: "Free WiFi, climate control, and comfortable seating areas",
     },
     {
       icon: <Car className="w-8 h-8" />,
-      title: "Free Parking",
+      title: "Car Parking",
       description: "Ample parking space at all partner locations",
     },
     {
@@ -48,13 +48,13 @@ export default function CourtsPage() {
     {
       icon: <Clock className="w-8 h-8" />,
       title: "Extended Hours",
-      description: "Most locations open 6 AM to 10 PM for your convenience",
+      description: "Most locations open 6 AM to 11 PM for your convenience",
     },
   ]
 
   const partnerCourts = [
     {
-      name: "Elite Sports Complex",
+      name: "Paddle Rattle",
       location: "Downtown Sports District",
       address: "123 Sports Avenue, Downtown",
       courts: 8,
@@ -65,7 +65,7 @@ export default function CourtsPage() {
       hours: "6 AM - 10 PM",
     },
     {
-      name: "Riverside Pickleball Center",
+      name: "Any Time Pickleball",
       location: "Riverside District",
       address: "456 River Road, Riverside",
       courts: 6,
@@ -76,7 +76,7 @@ export default function CourtsPage() {
       hours: "7 AM - 9 PM",
     },
     {
-      name: "Metro Sports Hub",
+      name: "Prasad Recreational Center",
       location: "Central Business District",
       address: "789 Metro Plaza, CBD",
       courts: 10,
@@ -126,7 +126,7 @@ export default function CourtsPage() {
       name: "David Wilson",
       rating: 5,
       text: "The partner courts are always in perfect condition. Great facilities and easy booking through TurfTown!",
-      court: "Elite Sports Complex",
+      court: "Apex Sports Complex",
     },
     {
       name: "Amanda Foster",

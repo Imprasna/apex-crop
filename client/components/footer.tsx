@@ -2,6 +2,9 @@ import Link from "next/link"
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
+  const currentYear: number = new Date().getFullYear();
+
+
   return (
     <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -93,14 +96,14 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-secondary" />
-                <span className="text-gray-300">info@elitepickleball.com</span>
+                <span className="text-gray-300">info@Apexpickleball.com</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-300 font-secondary">© 2024 Elite Pickleball Academy. All rights reserved.</p>
+          <p className="text-gray-300 font-secondary">© {currentYear} Apex Pickleball Academy. All rights reserved.</p>
         </div>
       </div>
     </footer>

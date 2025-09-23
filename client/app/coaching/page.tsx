@@ -48,8 +48,8 @@ export default function CoachingPage() {
 
   const coaches = [
     {
-      name: "John Martinez",
-      title: "Head Coach & Founder",
+      name: "Rohit K Ahuja",
+      title: "Founder & Head Coach",
       certifications: ["USAPA Certified", "PPR Certified"],
       experience: "15 years",
       specialties: ["Advanced Strategy", "Tournament Prep", "Mental Game"],
@@ -57,8 +57,8 @@ export default function CoachingPage() {
       bio: "Former professional player with multiple championship titles. Specializes in developing competitive players.",
     },
     {
-      name: "Sarah Williams",
-      title: "Senior Coach",
+      name: "Prasanna S",
+      title: "Co-founder & Associate Coach",
       certifications: ["USAPA Certified", "Youth Specialist"],
       experience: "10 years",
       specialties: ["Youth Development", "Beginner Instruction", "Group Dynamics"],
@@ -66,7 +66,7 @@ export default function CoachingPage() {
       bio: "Expert in youth development and beginner instruction with a passion for growing the sport. Focuses on building skills in young players.",
     },
     {
-      name: "Mike Thompson",
+      name: "GK",
       title: "Performance Coach",
       certifications: ["USAPA Certified", "Fitness Specialist"],
       experience: "8 years",
@@ -246,7 +246,7 @@ export default function CoachingPage() {
                       <h4 className="font-primary font-semibold text-primary mb-2">Certifications</h4>
                       <div className="flex flex-wrap justify-center gap-2">
                         {coach.certifications.map((cert, idx) => (
-                          <span key={idx} className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">
+                          <span key={idx} className="bg-primary/10 text-primary px-2 py-1 rounded text-xs bg-orange-400">
                             {cert}
                           </span>
                         ))}
@@ -257,7 +257,7 @@ export default function CoachingPage() {
                       <h4 className="font-primary font-semibold text-primary mb-2">Specialties</h4>
                       <div className="flex flex-wrap justify-center gap-2">
                         {coach.specialties.map((specialty, idx) => (
-                          <span key={idx} className="bg-secondary/10 text-secondary px-2 py-1 rounded text-xs">
+                          <span key={idx} className="bg-secondary/10 text-secondary px-2 py-1 rounded text-xs border border-secondary/50">
                             {specialty}
                           </span>
                         ))}
