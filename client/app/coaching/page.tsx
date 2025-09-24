@@ -18,7 +18,7 @@ export default function CoachingPage() {
       price: "$75",
       description: "One-on-one personalized instruction tailored to your specific needs and goals.",
       features: ["Personalized training plan", "Video analysis", "Technique refinement", "Strategy development"],
-      image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop",
+      image: "/one-on-one-1.png",
     },
     {
       title: "Group Lessons",
@@ -26,7 +26,7 @@ export default function CoachingPage() {
       price: "$35",
       description: "Small group sessions (4-6 players) focusing on fundamentals and game play.",
       features: ["Small group setting", "Skill-based grouping", "Game situations", "Social interaction"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+      image: "/group-class-1.png",
     },
     {
       title: "Intensive Clinics",
@@ -34,7 +34,7 @@ export default function CoachingPage() {
       price: "$120",
       description: "Comprehensive workshops covering specific aspects of the game in detail.",
       features: ["Specialized focus areas", "Advanced techniques", "Competitive drills", "Q&A sessions"],
-      image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=300&fit=crop",
+      image: "/intensive-clinics.png",
     },
     {
       title: "Youth Programs",
@@ -42,7 +42,7 @@ export default function CoachingPage() {
       price: "$25",
       description: "Fun and engaging programs designed specifically for young players aged 8-16.",
       features: ["Age-appropriate instruction", "Fun games and drills", "Character development", "Tournament prep"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+      image: "/youth-program.png",
     },
   ]
 
@@ -53,7 +53,7 @@ export default function CoachingPage() {
       certifications: ["USAPA Certified", "PPR Certified"],
       experience: "15 years",
       specialties: ["Advanced Strategy", "Tournament Prep", "Mental Game"],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      image: "/rohit.jpg",
       bio: "Former professional player with multiple championship titles. Specializes in developing competitive players.",
     },
     {
@@ -62,7 +62,7 @@ export default function CoachingPage() {
       certifications: ["USAPA Certified", "Youth Specialist"],
       experience: "10 years",
       specialties: ["Youth Development", "Beginner Instruction", "Group Dynamics"],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      image: "/prasanna.jpg",
       bio: "Expert in youth development and beginner instruction with a passion for growing the sport. Focuses on building skills in young players.",
     },
     {
@@ -71,7 +71,7 @@ export default function CoachingPage() {
       certifications: ["USAPA Certified", "Fitness Specialist"],
       experience: "8 years",
       specialties: ["Fitness Training", "Injury Prevention", "Performance Analysis"],
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop",
+      image: "/gk1.jpg",
       bio: "Combines pickleball expertise with fitness training to optimize player performance. Focuses on players physical fitness.",
     },
   ]
@@ -128,6 +128,12 @@ export default function CoachingPage() {
                     size="lg"
                     variant="outline"
                     className="border-white bg-white text-primary font-semibold"
+                    onClick={() => {
+                      const section = document.getElementById("our-program");
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                   >
                     View Programs
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -138,7 +144,7 @@ export default function CoachingPage() {
             <ScrollAnimation delay={200}>
               <div className="relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=500&fit=crop"
+                  src="/coachings.png"
                   alt="Professional pickleball coaching"
                   width={600}
                   height={500}
@@ -151,7 +157,7 @@ export default function CoachingPage() {
       </section>
 
       {/* Programs Overview */}
-      <section className="py-20">
+      <section className="py-20" id="our-program">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="text-center mb-16">

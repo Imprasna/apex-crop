@@ -57,9 +57,9 @@ export default function CourtsPage() {
       name: "Paddle Rattle",
       location: "Downtown Sports District",
       address: "123 Sports Avenue, Downtown",
-      courts: 8,
+      courts: 3,
       features: ["Indoor Courts", "Climate Controlled", "Pro Shop", "Parking"],
-      image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=500&h=300&fit=crop",
+      image: "/paddle-rattle.jpg",
       rating: 4.8,
       reviews: 124,
       hours: "6 AM - 10 PM",
@@ -69,9 +69,9 @@ export default function CourtsPage() {
       name: "Any Time Pickleball",
       location: "Riverside District",
       address: "456 River Road, Riverside",
-      courts: 6,
+      courts: 2,
       features: ["Outdoor Courts", "Scenic Views", "Café", "Equipment Rental"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
+      image: "/prc.jpg",
       rating: 4.7,
       reviews: 89,
       hours: "7 AM - 9 PM",
@@ -81,50 +81,50 @@ export default function CourtsPage() {
       name: "Prasad Recreational Center",
       location: "Central Business District",
       address: "789 Metro Plaza, CBD",
-      courts: 10,
+      courts: 4,
       features: ["Mixed Courts", "Tournament Facility", "Locker Rooms", "Coaching"],
-      image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&h=300&fit=crop",
+      image: "/prc.jpg",
       rating: 4.9,
       reviews: 156,
       hours: "6 AM - 11 PM",
       link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
-    {
-      name: "Northside Recreation Center",
-      location: "Northside Community",
-      address: "321 North Street, Northside",
-      courts: 4,
-      features: ["Community Courts", "Beginner Friendly", "Group Classes", "Affordable"],
-      image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=500&h=300&fit=crop",
-      rating: 4.5,
-      reviews: 67,
-      hours: "8 AM - 8 PM",
-      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
-    },
-    {
-      name: "Westside Athletic Club",
-      location: "Westside Premium",
-      address: "654 West Boulevard, Westside",
-      courts: 12,
-      features: ["Premium Facility", "Member Exclusive", "Spa Services", "Restaurant"],
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
-      rating: 4.8,
-      reviews: 203,
-      hours: "5 AM - 11 PM",
-      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
-    },
-    {
-      name: "Southpark Sports Arena",
-      location: "Southpark Area",
-      address: "987 South Park Drive, Southpark",
-      courts: 7,
-      features: ["Tournament Courts", "Live Streaming", "Spectator Seating", "Events"],
-      image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&h=300&fit=crop",
-      rating: 4.6,
-      reviews: 92,
-      hours: "6 AM - 10 PM",
-      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
-    },
+    // {
+    //   name: "Northside Recreation Center",
+    //   location: "Northside Community",
+    //   address: "321 North Street, Northside",
+    //   courts: 4,
+    //   features: ["Community Courts", "Beginner Friendly", "Group Classes", "Affordable"],
+    //   image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=500&h=300&fit=crop",
+    //   rating: 4.5,
+    //   reviews: 67,
+    //   hours: "8 AM - 8 PM",
+    //   link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
+    // },
+    // {
+    //   name: "Westside Athletic Club",
+    //   location: "Westside Premium",
+    //   address: "654 West Boulevard, Westside",
+    //   courts: 12,
+    //   features: ["Premium Facility", "Member Exclusive", "Spa Services", "Restaurant"],
+    //   image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop",
+    //   rating: 4.8,
+    //   reviews: 203,
+    //   hours: "5 AM - 11 PM",
+    //   link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
+    // },
+    // {
+    //   name: "Southpark Sports Arena",
+    //   location: "Southpark Area",
+    //   address: "987 South Park Drive, Southpark",
+    //   courts: 7,
+    //   features: ["Tournament Courts", "Live Streaming", "Spectator Seating", "Events"],
+    //   image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&h=300&fit=crop",
+    //   rating: 4.6,
+    //   reviews: 92,
+    //   hours: "6 AM - 10 PM",
+    //   link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
+    // },
   ]
 
   const testimonials = [
@@ -186,6 +186,12 @@ export default function CourtsPage() {
                     size="lg"
                     variant="outline"
                     className="border-white bg-white text-primary font-semibold"
+                    onClick={() => {
+                      const section = document.getElementById("partner-courts");
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                   >
                     View Locations
                     <MapPin className="ml-2 w-5 h-5" />
@@ -228,7 +234,7 @@ export default function CourtsPage() {
       </section>
 
       {/* Partner Courts */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" id="partner-courts">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollAnimation>
             <div className="text-center mb-16">
@@ -420,6 +426,12 @@ export default function CourtsPage() {
                 size="lg"
                 variant="outline"
                 className="border-white hover:bg-white text-primary font-semibold px-8 py-4 text-lg"
+                onClick={() => {
+                  const section = document.getElementById("partner-courts");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
               >
                 <MapPin className="mr-2 w-5 h-5" />
                 Find Nearest Court

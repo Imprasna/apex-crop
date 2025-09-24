@@ -11,7 +11,7 @@ import { MapPin, Phone, Mail, Clock, Send, Facebook, Instagram, Twitter, Youtube
 import { backendApi } from "@/entities"
 import axios from 'axios';
 import toast from "react-hot-toast"
-import { showSuccess } from "@/lib/toastUtil"
+import { showError, showSuccess } from "@/lib/toastUtil"
 
 
 export default function ContactPage() {
@@ -49,15 +49,7 @@ export default function ContactPage() {
         message: "",
       });
     } catch (error: any) {
-      toast.error("Form submission failed", {
-        removeDelay: 1000,
-        position: 'top-center',
-        duration: 3000,
-        iconTheme: {
-          primary: '#FF2C2C',
-          secondary: '#fff',
-        },
-      });
+      showError("Form submission failed");
     } finally {
       setIsSubmitting(false);
     }
@@ -130,7 +122,7 @@ export default function ContactPage() {
             <ScrollAnimation delay={200}>
               <div className="relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=500&fit=crop"
+                  src="/get-in-touch.png"
                   alt="Apex Pickleball Academy facility"
                   width={600}
                   height={500}
