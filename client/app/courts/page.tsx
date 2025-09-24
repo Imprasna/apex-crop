@@ -31,7 +31,7 @@ export default function CourtsPage() {
       description: "Partner courts across the city for your convenience",
     },
     {
-      icon: <Wifi className="w-8 h-8" />, 
+      icon: <Wifi className="w-8 h-8" />,
       title: "Modern Amenities",
       description: "Free WiFi, climate control, and comfortable seating areas",
     },
@@ -63,6 +63,7 @@ export default function CourtsPage() {
       rating: 4.8,
       reviews: 124,
       hours: "6 AM - 10 PM",
+      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
     {
       name: "Any Time Pickleball",
@@ -74,6 +75,7 @@ export default function CourtsPage() {
       rating: 4.7,
       reviews: 89,
       hours: "7 AM - 9 PM",
+      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
     {
       name: "Prasad Recreational Center",
@@ -85,6 +87,7 @@ export default function CourtsPage() {
       rating: 4.9,
       reviews: 156,
       hours: "6 AM - 11 PM",
+      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
     {
       name: "Northside Recreation Center",
@@ -96,6 +99,7 @@ export default function CourtsPage() {
       rating: 4.5,
       reviews: 67,
       hours: "8 AM - 8 PM",
+      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
     {
       name: "Westside Athletic Club",
@@ -107,6 +111,7 @@ export default function CourtsPage() {
       rating: 4.8,
       reviews: 203,
       hours: "5 AM - 11 PM",
+      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
     {
       name: "Southpark Sports Arena",
@@ -118,6 +123,7 @@ export default function CourtsPage() {
       rating: 4.6,
       reviews: 92,
       hours: "6 AM - 10 PM",
+      link: "https://turftown.in/chennai/sports-venue/prc-pickleball-saligramam-pickleball",
     },
   ]
 
@@ -142,10 +148,11 @@ export default function CourtsPage() {
     },
   ]
 
-  const handleBookCourt = () => {
-    // Open TurfTown app or website
-    window.open("https://turftown.in", "_blank")
-  }
+  const handleBookCourt = (link: string) => {
+    window.open(link, "_blank");
+  };
+
+  const handleBookCourtGeneral = () => { window.open("https://turftown.in", "_blank") }
 
   return (
     <div className="pt-16">
@@ -170,7 +177,7 @@ export default function CourtsPage() {
                   <Button
                     size="lg"
                     className="bg-secondary hover:bg-secondary/90 text-white font-semibold"
-                    onClick={handleBookCourt}
+                    onClick={handleBookCourtGeneral}
                   >
                     Book on TurfTown
                     <Calendar className="ml-2 w-5 h-5" />
@@ -255,9 +262,8 @@ export default function CourtsPage() {
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
-                            className={`w-4 h-4 ${
-                              i < Math.floor(court.rating) ? "text-secondary fill-current" : "text-gray-300"
-                            }`}
+                            className={`w-4 h-4 ${i < Math.floor(court.rating) ? "text-secondary fill-current" : "text-gray-300"
+                              }`}
                           />
                         ))}
                       </div>
@@ -280,7 +286,7 @@ export default function CourtsPage() {
 
                     <Button
                       className="w-full bg-primary hover:bg-primary/90 text-white font-semibold"
-                      onClick={handleBookCourt}
+                      onClick={() => handleBookCourt(court.link)}
                     >
                       Book on TurfTown
                       <ExternalLink className="ml-2 w-4 h-4" />
@@ -342,7 +348,7 @@ export default function CourtsPage() {
               <Button
                 size="lg"
                 className="bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-4 text-lg"
-                onClick={handleBookCourt}
+                onClick={handleBookCourtGeneral}
               >
                 Start Booking on TurfTown
                 <ExternalLink className="ml-2 w-5 h-5" />
@@ -405,7 +411,7 @@ export default function CourtsPage() {
               <Button
                 size="lg"
                 className="bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-4 text-lg"
-                onClick={handleBookCourt}
+                onClick={handleBookCourtGeneral}
               >
                 Book Now on TurfTown
                 <Calendar className="ml-2 w-5 h-5" />

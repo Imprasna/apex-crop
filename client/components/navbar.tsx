@@ -4,12 +4,15 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import BookingModal from "@/components/booking-modal"
-import { Sparkles } from "lucide-react"
+import { LogOut, Sparkles } from "lucide-react"
+import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,18 +56,62 @@ export default function Navbar() {
     setIsOpen(false)
   }
 
+  const isAdmin = pathname?.startsWith("/admin");
+
+  const handleLogout = () => {
+    localStorage.removeItem("cms_logged_in")
+    window.location.href = "/"
+  }
+  
+
+  if (isAdmin) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+              <Image
+                src="/apexxx.png"
+                alt="Apex Pickleball"
+                width={40}
+                height={40}
+              />
+            </div>
+            <span className="font-primary font-bold text-xl text-primary">
+              Apex Pickleball
+            </span>
+          </Link>
+
+          {/* Logout Button */}
+          <Button
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg"
+            // onClick={() => {
+            //   // TODO: add logout logic here
+            //   window.location.href = "/"; // example: redirect to home after logout
+            // }}
+            onClick={handleLogout}
+          >
+            <LogOut className="w-5 h-5" />
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-lg" : "bg-white/95 backdrop-blur-sm"
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : "bg-white/95 backdrop-blur-sm"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 z-50 relative">
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
+                <span className="text-white font-bold text-xl">
+                  <Image src="/apexxx.png" alt="Apex Pickleball" width={180} height={180} />
+                </span>
               </div>
               <span className="font-primary font-bold text-xl text-primary">Apex Pickleball</span>
             </Link>
@@ -81,17 +128,17 @@ export default function Navbar() {
                 </Link>
               ))}
               {/* Luxury Book Now Button */}
-            <Button
-                  className="relative overflow-hidden bg-gradient-to-r from-secondary via-secondary/90 to-secondary/80 hover:from-secondary/90 hover:via-secondary hover:to-secondary text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
-                  onClick={() => setIsBookingModalOpen(true)}
-                >
-                  <span className="relative z-10 flex items-center">
-                    Book Now
-                    <Sparkles className="ml-2 w-4 h-4 group-hover:animate-spin" />
-                  </span>
-                  {/* Animated background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
-                </Button>
+              <Button
+                className="relative overflow-hidden bg-gradient-to-r from-secondary via-secondary/90 to-secondary/80 hover:from-secondary/90 hover:via-secondary hover:to-secondary text-white font-semibold px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                onClick={() => setIsBookingModalOpen(true)}
+              >
+                <span className="relative z-10 flex items-center">
+                  Book Now
+                  <Sparkles className="ml-2 w-4 h-4 group-hover:animate-spin" />
+                </span>
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+              </Button>
               {/* <Button
                 className="bg-secondary hover:bg-secondary/90 text-white font-semibold"
                 onClick={() => setIsBookingModalOpen(true)}
@@ -109,19 +156,16 @@ export default function Navbar() {
               >
                 <div className="relative w-6 h-6">
                   <span
-                    className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
-                      isOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
-                    }`}
+                    className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-0 bg-white" : "-translate-y-2"
+                      }`}
                   />
                   <span
-                    className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
-                      isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
-                    }`}
+                    className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+                      }`}
                   />
                   <span
-                    className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
-                      isOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
-                    }`}
+                    className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isOpen ? "-rotate-45 translate-y-0 bg-white" : "translate-y-2"
+                      }`}
                   />
                 </div>
               </button>
@@ -131,17 +175,15 @@ export default function Navbar() {
 
         {/* Mobile Navigation Overlay */}
         <div
-          className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-500 md:hidden ${
-            isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+          className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-500 md:hidden ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
           onClick={() => setIsOpen(false)}
         />
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`fixed top-0 right-0 h-screen w-full bg-gradient-to-br from-primary via-primary/95 to-primary/90 transform transition-all duration-500 ease-in-out md:hidden ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-screen w-full bg-gradient-to-br from-primary via-primary/95 to-primary/90 transform transition-all duration-500 ease-in-out md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -177,9 +219,8 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={handleMenuItemClick}
-                  className={`text-white font-secondary text-xl font-medium hover:text-secondary transition-all duration-300 transform hover:scale-110 ${
-                    isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-                  }`}
+                  className={`text-white font-secondary text-xl font-medium hover:text-secondary transition-all duration-300 transform hover:scale-110 ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                    }`}
                   style={{
                     transitionDelay: isOpen ? `${400 + index * 100}ms` : "0ms",
                   }}

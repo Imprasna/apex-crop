@@ -7,11 +7,8 @@ import { Send } from "lucide-react";
 import { backendApi } from "@/entities";
 import axios from "axios";
 
-type CMSformProps = {
-  onLogout: () => void;
-};
 
-export default function CMSform({ onLogout }: CMSformProps) {
+export default function CMSform() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -100,10 +97,6 @@ export default function CMSform({ onLogout }: CMSformProps) {
 
   return (
     <>
-      <Button onClick={onLogout} className="absolute top-20 right-2 md:top-8 md:right-6 lg:top-20 lg:right-10 
-          bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm md:text-base shadow">
-        Logout
-      </Button>
       <div className=" pt-[5%]"></div>
       <div className="max-w-4xl mx-auto py-6 p-2">
         <Card className="bg-gray-300">

@@ -43,17 +43,17 @@ export default function HomePage() {
     {
       title: "Master Your Pickleball Game",
       subtitle: "Professional coaching and world-class facilities",
-      image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=1200&h=800&fit=crop",
+      image: "/banner1.png",
     },
     {
       title: "Premium Court Experience",
       subtitle: "State-of-the-art courts available for booking",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=800&fit=crop",
+      image: "/banner3.png",
     },
     {
       title: "Competitive Tournaments",
       subtitle: "Join exciting tournaments and compete with the best",
-      image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=800&fit=crop",
+      image: "/banner2.png",
     },
   ]
 
@@ -138,14 +138,15 @@ export default function HomePage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] sm:h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60 z-10"></div>
         <Image
           src={heroSlides[currentSlide].image || "/placeholder.svg"}
           alt="Hero background"
           fill
-          className="object-cover"
+          className="object-cover object-center min-h-[80vh]"
           priority
+          sizes="100vw"
         />
 
         <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-4">
@@ -210,7 +211,7 @@ export default function HomePage() {
                     <Link href={service.link}>
                       <Button
                         variant="outline"
-                        className="group-hover:bg-secondary group-hover:text-white group-hover:border-secondary transition-all font-semibold"
+                        className="group-hover:bg-secondary group-hover:text-white group-hover:border-secondary transition-all font-semibold border-2 border-secondary/80 rounded-xl"
                       >
                         Learn More
                         <ArrowRight className="ml-2 w-4 h-4" />

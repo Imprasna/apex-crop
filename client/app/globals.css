@@ -167,3 +167,43 @@ button {
 .bg-primary {
   color: white !important;
 }
+
+/* === Responsive Typography === */
+
+/* Base scaling */
+html {
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* Headings */
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem); /* min 32px → scales → max 48px */
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem); /* 24px → 36px */
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem); /* 20px → 28px */
+  line-height: 1.3;
+}
+
+h4, h5, h6 {
+  font-size: clamp(1rem, 2.5vw, 1.25rem); /* 16px → 20px */
+  line-height: 1.4;
+}
+
+/* Body text */
+p, li, span, a {
+  font-size: clamp(0.9rem, 2vw, 1rem); /* ~14.4px → 16px */
+  line-height: 1.6;
+}
+
+/* Small text */
+small {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* 12px → 14px */
+  line-height: 1.4;
+}
