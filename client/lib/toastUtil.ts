@@ -17,7 +17,7 @@ const defaultErrorToastOptions: ToastOptions = {
     position: 'top-center',
     duration: 3000,
     iconTheme: {
-        primary: '#FF2C2C',
+        primary: '#bb0404ff',
         secondary: '#fff',
     },
     // removeDelay is not a built-in prop, but you can handle close manually if needed
@@ -27,7 +27,7 @@ const defaultErrorToastOptions: ToastOptions = {
 export const showSuccess = (message: string, options?: ToastOptions) => {
     toast.success(message, {
         ...defaultSuccessToastOptions, style: {
-            background: "#69ee70ff",
+            background: "#00bd74ff",
             color: "white",
         }, ...options
     });
