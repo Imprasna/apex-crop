@@ -210,19 +210,19 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
             </div>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex gap-4 pt-4 flex-wrap">
               <Button
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="flex-1 font-semibold border-2 border-primary/80"
+                className="w-full md:flex-1 font-semibold border-2 border-primary/80"
                 disabled={isSubmitting}
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
-                className="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold"
+                className="w-full md:flex-1 bg-primary hover:bg-primary/90 text-white font-semibold"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

@@ -75,7 +75,7 @@ export default function CMSPage() {
 
   // ✅ Render CMSform only after OTP validation
   if (otpValidated) {
-    return <CMSform onLogout={handleLogout} />;
+    return <CMSform />;
   }
 
   return (
