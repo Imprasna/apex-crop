@@ -81,8 +81,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
       onClose(); // Close modal or dialog
     } catch (error) {
-      console.error("Submission error:", error);
-      alert("There was an error submitting your request. Please try again.");
+      // console.error("Submission error:", error);
+      showError("There was an error submitting your request");
     } finally {
       setIsSubmitting(false);
     }
