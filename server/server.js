@@ -22,6 +22,15 @@ app.post("/cms/tournament", cms);
 
 app.post("/cms/validation", otpvalidation);
 
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "server is running good !",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+  });
+});
+
 app.listen(7000, () => {
   console.log("Server running on port 7000");
 });
