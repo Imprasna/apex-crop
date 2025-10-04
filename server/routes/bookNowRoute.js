@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
-import supabase from "../config/supabaseClient.js"; 
+import supabase from "../config/supabaseClient.js";
 import nodemailer from "nodemailer";
 
-const SENDER_EMAIL = process.env.SENDER_EMAIL; 
-const RECEIVER_EMAIL = process.env.RECEIVER_EMAIL; 
-const APP_PASSWORD = process.env.APP_PASSWORD; 
+const SENDER_EMAIL = process.env.SENDER_EMAIL;
+const RECEIVER_EMAIL = process.env.RECEIVER_EMAIL;
+const APP_PASSWORD = process.env.APP_PASSWORD;
 
 export default async function bookNowHandler(req, res) {
   console.log("POST /booknow triggered");
@@ -15,16 +15,14 @@ export default async function bookNowHandler(req, res) {
   const id = uuidv4();
 
   try {
+    // ✅ Insert booking into Supabase
     const { data, error } = await supabase
       .from("bookings-container")
       .insert([{ id, name, phone, email, address, sessions, location }])
       .select();
 
     if (error) {
-      console.error(
-        "❌ Supabase insert error (full):",
-        JSON.stringify(error, null, 2)
-      );
+      console.error("❌ Supabase insert error:", JSON.stringify(error, null, 2));
       return res.status(500).json({
         message: "Supabase insert failed",
         error,
@@ -33,11 +31,24 @@ export default async function bookNowHandler(req, res) {
 
     console.log("✅ Booking saved successfully:", data);
 
+    /**
+     * ✅ FIXED: Explicit SMTP configuration
+     * Gmail requires:
+     *  - host: smtp.gmail.com
+     *  - port: 465 (secure) or 587 (TLS)
+     * Some hosts (like Render/Vercel free tier) block port 465,
+     * so we try port 587 with secure: false first.
+     */
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587, // ✅ 465 often blocked, so use 587 with TLS
+      secure: false, // STARTTLS will upgrade connection
       auth: {
         user: SENDER_EMAIL,
         pass: APP_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false, // helps on certain hosts
       },
     });
 
